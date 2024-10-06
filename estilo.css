@@ -1,0 +1,187 @@
+/* estilo.css */
+
+/* General Styles */
+* {
+    margin: 0px;
+    text-align: center;
+}
+
+body {
+    background-image: url("http://127.0.0.1:5500/image/fondo.jpeg");
+    background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center center; /* Centra la imagen */
+}
+
+.vara {
+    height: 70px;
+    width: 15px;
+    background-color: #aaa;
+    margin: auto;
+    position: relative;
+    top: 10px;
+    border-radius: 0px 0px 8px 8px;
+    border: 1px solid #000;
+    border-top: 5px solid #000;
+    z-index: 1000;
+}
+
+img {
+    z-index: 100;
+    transition: all 5s;
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+#premio {
+    color: white;
+    position: absolute;
+    font-weight: bold;
+    font-size: 25px;
+    padding-top: 30px;
+    padding: 20px;
+    width: 100%; /* Asegura que el contenedor se ajuste al ancho de la pantalla */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+    color: goldenrod;
+}
+
+.nombre {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    color: gold;
+    font-weight: bold;
+}
+
+/* Estilos para la página de Caracteristicas */
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.title {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.selected-option {
+    font-size: 1.5em;
+    color: #007BFF;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+.trivia-input {
+    width: 80%;
+    height: 100px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+.trivia-display {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 601px) {
+    #premio {
+        right: 400px; /* Mueve el elemento a la derecha solo en pantallas grandes */
+    }
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 600px) {
+    .vara {
+        height: 50px;
+        width: 10px;
+        top: 5px;
+    }
+
+    #premio {
+        position: absolute;
+        bottom: 10px;
+        font-size: 20px;
+        padding-top: 10px;
+        padding: 100px;
+        color: goldenrod;
+    }
+
+    .nombre {
+        font-size: 30px;
+        bottom: 20px;
+    }
+
+    .imgSorpresa {
+        width: 80px; /* Ajusta el tamaño de la imagen */
+        height: auto;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 1.5em;
+    }
+
+    .description {
+        font-size: 1em;
+    }
+
+    .selected-option {
+        font-size: 1.2em;
+    }
+
+    .back-button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+}
