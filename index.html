@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toma Bonito</title>
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="icon" href="data:,">
+</head>
+
+<body>
+  <div class="intro-overlay" id="introOverlay">
+    <div class="intro-content">
+        <div class="intro-step" id="step1">
+            <h1 class="intro-title">¡Bienvenido a Toma Bonito!</h1>
+            <div class="wheel-animation"></div>
+            <p class="intro-description">¡Prepárate para la mejor noche de juegos! Una mezcla explosiva de retos, risas y diversión donde la suerte decidirá tu destino.</p>
+            <button class="intro-button" onclick="nextStep(2)">¡Vamos a Jugar!</button>
+        </div>
+        
+        <div class="intro-step" id="step2">
+            <h2 class="intro-title">¿Cómo Jugamos?</h2>
+            <p class="intro-description">
+                Gira la ruleta y enfréntate a seis categorías increíbles:
+                <br><br>
+                <span class="category-icon">⚽</span> Jugadores
+                <span class="category-icon">🧠</span> Trivia
+                <span class="category-icon">🤔</span> ¿Qué Prefieres?
+                <br>
+                <span class="category-icon">👥</span> Características
+                <span class="category-icon">🎯</span> Retos y Juegos
+                <span class="category-icon">👑</span> GOATS
+            </p>
+            <button class="intro-button" onclick="nextStep(3)">Siguiente</button>
+        </div>
+        
+        <div class="intro-step" id="step3">
+            <h2 class="intro-title">¡Que Empiece la Diversión!</h2>
+            <p class="intro-description">Tienes 3 giros por ronda. En cada giro, tendrás que cumplir con el desafío que te toque. ¡Prepara tus bebidas y que comience la fiesta!</p>
+            <button class="intro-button" onclick="startGame()">¡Empezar a Jugar!</button>
+        </div>
+    </div>
+</div>
+
+
+
+  <div id="premio">
+    <table style="margin: 0 auto;">
+      <tr>
+        <td>
+          <p class="categoria">CATEGORIA ES:</p>
+        </td>
+        <td><img src="image/cortesia.png" class="imgSorpresa"></td>
+      </tr>
+      <tr>
+        <td>
+          <p class="contador">TURNOS: 0</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="vara"></div>
+  <div class="ruleta-container">
+    <img src="image/imagen.png" id="ruleta" onclick="girar()">
+  </div>
+
+  <div class="nombre">Toma Bonito</div>
+
+  <audio id="audio" src="sonido/ruleta.mp3"></audio>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
