@@ -185,3 +185,107 @@ img {
         font-size: 0.9em;
     }
 }
+
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.intro-content {
+    max-width: 600px;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.intro-step {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.intro-step.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.intro-title {
+    font-size: 2.5em;
+    color: goldenrod;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.intro-description {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.intro-button {
+    background-color: goldenrod;
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.intro-button:hover {
+    background-color: #daa520;
+}
+
+.category-icon {
+    font-size: 2em;
+    margin: 10px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.wheel-animation {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    border: 4px solid goldenrod;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+/* Media query adicional para la introducción en dispositivos móviles */
+@media (max-width: 600px) {
+    .intro-title {
+        font-size: 2em;
+    }
+    
+    .intro-description {
+        font-size: 1em;
+    }
+    
+    .intro-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    
+    .category-icon {
+        font-size: 1.5em;
+        margin: 5px;
+    }
+}
