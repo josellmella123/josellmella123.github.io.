@@ -1,3 +1,28 @@
+let currentStep = 1;
+
+window.onload = function() {
+  setTimeout(() => {
+      document.getElementById('introOverlay').style.opacity = '1';
+      document.getElementById('step1').classList.add('active');
+  }, 500);
+}
+
+
+function nextStep(step) {
+    document.getElementById(`step${currentStep}`).classList.remove('active');
+    currentStep = step;
+    setTimeout(() => {
+        document.getElementById(`step${step}`).classList.add('active');
+    }, 50);
+}
+
+function startGame() {
+  document.getElementById('introOverlay').style.opacity = '0';
+  setTimeout(() => {
+      document.getElementById('introOverlay').style.display = 'none';
+  }, 500);
+}
+
 const ruleta = document.querySelector('#ruleta');
 const sonido = new Audio('sonido/ruleta.mp3'); // Carga el sonido
 
