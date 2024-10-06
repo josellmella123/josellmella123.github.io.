@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Que Prefieres</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Que Prefieres</h1>
+    <p class="description">La categoría "Que Prefieres" incluye una variedad de opciones para elegir entre dos alternativas. Dedo hacia arriba la opcion de la izquierda y dedo hacia abajo la opcion de la derecha, la opcion con menos votos recibe como penitencia a cada jugador 1 trago.</p>
+    <p id="opcion-seleccionada" class="selected-option"></p>
+    <button class="back-button" onclick="volver()">Volver a la ruleta</button>
+  </div>
+
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function volver() {
+      window.location.href = 'index.html';
+    }
+
+    document.getElementById('opcion-seleccionada').innerText = 'Opción seleccionada: ' + getQueryParam('opcion');
+  </script>
+</body>
+</html>

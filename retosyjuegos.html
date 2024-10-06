@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retos y Juegos</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Retos y Juegos</h1>
+    <p class="description">La categoría "Retos y Juegos" incluye una variedad de desafíos y juegos divertidos. A continuación, se muestra una opción seleccionada al azar:</p>
+    <p id="opcion-seleccionada" class="selected-option"></p>
+    <button class="back-button" onclick="volver()">Volver a la ruleta</button>
+  </div>
+
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function volver() {
+      window.location.href = 'index.html';
+    }
+
+    document.getElementById('opcion-seleccionada').innerText = 'Opción seleccionada: ' + getQueryParam('opcion');
+  </script>
+</body>
+</html>

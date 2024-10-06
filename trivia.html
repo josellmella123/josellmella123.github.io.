@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivia</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Trivia</h1>
+    <p class="description">Inventa una trivia al aire y compártela con los demás jugadores.</p>
+    <textarea id="trivia-input" class="trivia-input" placeholder="Escribe tu trivia aquí..."></textarea>
+    <button class="submit-button" onclick="submitTrivia()">Enviar Trivia</button>
+    <button class="back-button" onclick="volver()">Volver a la ruleta</button>
+    <div id="trivia-display" class="trivia-display"></div>
+  </div>
+
+  <script>
+    function volver() {
+      window.location.href = 'index.html';
+    }
+
+    function submitTrivia() {
+      const trivia = document.getElementById('trivia-input').value;
+      if (trivia) {
+        localStorage.setItem('currentTrivia', trivia);
+        displayTrivia();
+        alert('Tu trivia ha sido enviada.');
+      } else {
+        alert('Por favor, escribe una trivia.');
+      }
+    }
+
+    function displayTrivia() {
+      const trivia = localStorage.getItem('currentTrivia');
+      if (trivia) {
+        document.getElementById('trivia-display').innerText = 'Trivia actual: ' + trivia;
+      }
+    }
+
+    // Mostrar la trivia almacenada al cargar la página
+    window.onload = displayTrivia;
+  </script>
+</body>
+</html>
