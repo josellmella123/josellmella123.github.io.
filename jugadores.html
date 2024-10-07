@@ -7,14 +7,120 @@
   <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-  <h1>Jugadores</h1>
-  <p>Aquí puedes explicar la categoría "Jugadores".</p>
-  <button onclick="volver()">Volver a la ruleta</button>
+  <div class="container">
+    <h1 class="title">Jugadores</h1>
+    <div id="jugador-seleccionado" class="selected-player"></div>
+    <button class="back-button" onclick="volver()">Volver a la ruleta</button>
+  </div>
+
+  <div class="game-overlay" id="gameOverlay">
+    <div class="game-content">
+      <h2>¿Cómo jugamos?</h2>
+      <button onclick="showDescription('Jugadores')" aria-label="Jugadores">Jugadores</button>
+      <button onclick="showDescription('Trivia')" aria-label="Trivia">Trivia</button>
+      <button onclick="showDescription('Que Prefieres')" aria-label="¿Qué Prefieres?">¿Qué Prefieres?</button>
+      <button onclick="showDescription('Caracteristicas')" aria-label="Características">Características</button>
+      <button onclick="showDescription('Retos y Juegos')" aria-label="Retos y Juegos">Retos y Juegos</button>
+      <button onclick="showDescription('Goats')" aria-label="Goats">Goats</button>
+      <div id="description" class="description"></div>
+      <button class="intro-button" onclick="closeGameOverlay()">Cerrar</button>
+    </div>
+  </div>
+
+  <button id="toggleGameButton" aria-label="Mostrar ¿Cómo Jugamos?" onclick="openGameOverlay()">¿Cómo Jugamos?</button>
 
   <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
     function volver() {
       window.location.href = 'index.html';
     }
+
+    function openGameOverlay() {
+      const gameOverlay = document.getElementById('gameOverlay');
+      gameOverlay.style.display = 'flex';
+      setTimeout(() => {
+        gameOverlay.style.opacity = '1';
+      }, 50);
+    }
+
+    function closeGameOverlay() {
+      const gameOverlay = document.getElementById('gameOverlay');
+      gameOverlay.style.opacity = '0';
+      setTimeout(() => {
+        gameOverlay.style.display = 'none';
+      }, 500);
+    }
+
+    function showDescription(option) {
+  let descriptionText = '';
+  switch (option) {
+    case 'Jugadores':
+      descriptionText = 'Los mejores jugadores actualmente son clasificados en bombos donde dependiendo el bombo en el que estén, mayor será la “habilidad” de estos. Bombo 1 toman o reparten o evitan 1, Bombo 2 toman o reparten o evitan 2 y Bombo 3 toman o reparten o evitan 3. Se dividen en 3 secciones: atacantes (toman), mediocampistas (reparten), defensas o arqueros (evitan). Los que evitan, lo hacen cuando les toca tomar.';
+      break;
+    case 'Trivia':
+      descriptionText = 'Piense en una pregunta y los que se la respondan mal toman 1 trago pero si la responden bien toma 1 trago el que hizo la pregunta las veces que le respondieron bien.';
+      break;
+    case 'Que Prefieres':
+      descriptionText = 'Los jugadores deben elegir entre dos opciones y el que menos elijan los demás debe tomar 1 trago, están las opciones de la izquierda y de la derecha y en caso de empate todos toman 1 trago.';
+      break;
+    case 'Caracteristicas':
+      descriptionText = 'Según la característica seleccionada, se realizará una acción específica. Por ejemplo, si se selecciona "Vinicius", el jugador más rápido toma 1 trago.';
+      break;
+    case 'Retos y Juegos':
+      descriptionText = 'Si la opcion seleccionada es reto o juego se debe realizar la accion que se indique en la carta, si no se cumple la accion se toma 1 trago.';
+      break;
+    case 'Goats':
+      descriptionText = 'Jugador decide una regla y se cambia cada vez que alguien le salga otro goat y asi sucecivamente, el que no cumpla la regla toma 1 trago.';
+      break;
+  }
+  document.getElementById('description').innerText = descriptionText;
+}
+
+    function seleccionarJugadorAleatorio() {
+      const atacantes = {
+        bombo1: ['Harry Kane', 'Erling Haaland', 'Kilian Mbappe', 'Vinicius Junior', 'Robert Lewandowski'],
+        bombo2: ['Son', 'Rodrygo', 'Julian', 'Lautaro', 'Rafa Leao', 'Salah', 'Grizzi', 'Ney', 'Osimhen', 'Dybala'],
+        bombo3: ['Benzema', 'Immobile', 'Gabriel Jesus', 'Lukaku', 'Rashford', 'Auba', 'Watkins', 'Boniface', 'Isak', 'Darwin', 'Dembele', 'Adeyemi', 'Pulisic', 'Alexis', 'Anthony']
+      };
+
+      const mediocampistas = {
+        bombo1: ['Kevin', 'Belli', 'Wirtz', 'Rodri', 'Modric', 'Kroos', 'Musiala'],
+        bombo2: ['Kimmich', 'Bruno', 'Bernardo', 'De Jong', 'Pedri', 'Barella', 'Gundogan', 'Goretzka', 'Odegaard', 'Rice', 'Fede', 'Enzo', 'Kai', 'Palmer'],
+        bombo3: ['Camavinga', 'Thiago', 'Parejo', 'Xavi Simons', 'Olmo', 'Sabitzer', 'Madison', 'McAlister', 'Gavi', 'Case', 'Kante', 'Guimaraes', 'Xhaka', 'Palhinha', 'Paqueta', 'Calhanoglu', 'Tchouameni', 'Charles', 'De Paul']
+      };
+
+      const defensas = {
+        bombo1: ['Neuer', 'Courtois', 'Oblak', 'Van Dijk', 'Ruben Dias', 'Rudiger', 'Marquinhos'],
+        bombo2: ['Ter Stegen', 'Ederson', 'Donnarumma', 'Maignan', 'Dibu', 'Unai Simon', 'Kounde', 'Alaba', 'Akanji', 'Araujo', 'Laporte', 'Militao', 'Stones', 'Saliba', 'Licha', 'Cuti'],
+        bombo3: ['Pepe', 'Navas', 'Lloris', 'Raya', 'Kobel', 'De Gea', 'Onana', 'Szczesny', 'Koulibaly', 'Bonucci', 'Skriniar', 'Thiago Silva', 'De Ligt', 'Varane', 'Ramos', 'Gvardiol', 'Magalhaes']
+      };
+
+      const secciones = [atacantes, mediocampistas, defensas];
+      const seccion = secciones[Math.floor(Math.random() * secciones.length)];
+      const bombos = Object.keys(seccion);
+      const bombo = bombos[Math.floor(Math.random() * bombos.length)];
+      const jugadores = seccion[bombo];
+      const jugador = jugadores[Math.floor(Math.random() * jugadores.length)];
+
+      let accion = '';
+      if (seccion === atacantes) {
+        accion = 'toman';
+      } else if (seccion === mediocampistas) {
+        accion = 'reparten';
+      } else if (seccion === defensas) {
+        accion = 'evitan';
+      }
+
+      const resultado = `${jugador} (${accion} ${bombo.replace('bombo', '')})`;
+      document.getElementById('jugador-seleccionado').innerText = resultado;
+    }
+
+    // Seleccionar un jugador aleatorio al cargar la página
+    window.onload = seleccionarJugadorAleatorio;
   </script>
 </body>
 </html>
