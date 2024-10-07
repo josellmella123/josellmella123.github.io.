@@ -1,10 +1,50 @@
 let currentStep = 1;
 
 window.onload = function() {
-  setTimeout(() => {
-      document.getElementById('introOverlay').style.opacity = '1';
+  const introOverlay = document.getElementById('introOverlay');
+  const toggleButton = document.getElementById('toggleIntroButton');
+
+  if (localStorage.getItem('introShown') === 'true') {
+    introOverlay.style.display = 'none';
+    toggleButton.innerText = 'Mostrar Introducción';
+  } else {
+    setTimeout(() => {
+      introOverlay.style.opacity = '1';
       document.getElementById('step1').classList.add('active');
-  }, 500);
+    }, 500);
+  }
+
+  toggleButton.addEventListener('click', () => {
+    if (introOverlay.style.display === 'none' || introOverlay.style.display === '') {
+      introOverlay.style.display = 'flex';
+      setTimeout(() => {
+        introOverlay.style.opacity = '1';
+      }, 50);
+      toggleButton.innerText = 'Ocultar Introducción';
+    } else {
+      introOverlay.style.opacity = '0';
+      setTimeout(() => {
+        introOverlay.style.display = 'none';
+        toggleButton.innerText = 'Mostrar Introducción';
+      }, 500);
+    }
+  });
+}
+
+function openTab(evt, tabName) {
+  const tabContents = document.getElementsByClassName('tab-content');
+  const tabButtons = document.getElementsByClassName('tab-button');
+
+  for (let i = 0; i < tabContents.length; i++) {
+    tabContents[i].style.display = 'none';
+  }
+
+  for (let i = 0; i < tabButtons.length; i++) {
+    tabButtons[i].className = tabButtons[i].className.replace(' active', '');
+  }
+
+  document.getElementById(tabName).style.display = 'block';
+  evt.currentTarget.className += ' active';
 }
 
 
@@ -17,11 +57,43 @@ function nextStep(step) {
 }
 
 function startGame() {
+  localStorage.setItem('introShown', 'true');
   document.getElementById('introOverlay').style.opacity = '0';
   setTimeout(() => {
-      document.getElementById('introOverlay').style.display = 'none';
+    document.getElementById('introOverlay').style.display = 'none';
   }, 500);
 }
+
+function showGameOptions() {
+  document.getElementById('gameOptions').style.display = 'block';
+}
+
+function showDescription(option) {
+  let descriptionText = '';
+  switch (option) {
+    case 'Jugadores':
+      descriptionText = 'Descripción de Jugadores...';
+      break;
+    case 'Trivia':
+      descriptionText = 'Piense en una pregunta y los que se la respondan mal toman 1 trago pero si la responden bien toma 1 trago el que hizo la pregunta las veces que le respondieron bien.';
+      break;
+    case 'Que Prefieres':
+      descriptionText = 'Descripción de ¿Qué Prefieres?...';
+      break;
+    case 'Caracteristicas':
+      descriptionText = 'Descripción de Características...';
+      break;
+    case 'Retos y Juegos':
+      descriptionText = 'Descripción de Retos y Juegos...';
+      break;
+    case 'Goats':
+      descriptionText = 'Descripción de Goats...';
+      break;
+  }
+  document.getElementById('description').innerText = descriptionText;
+}
+
+
 
 const ruleta = document.querySelector('#ruleta');
 const sonido = new Audio('sonido/ruleta.mp3'); // Carga el sonido
