@@ -12,38 +12,52 @@
 <body>
   <div class="intro-overlay" id="introOverlay">
     <div class="intro-content">
-        <div class="intro-step" id="step1">
-            <h1 class="intro-title">¡Bienvenido a Toma Bonito!</h1>
-            <div class="wheel-animation"></div>
-            <p class="intro-description">¡Prepárate para la mejor noche de juegos! Una mezcla explosiva de retos, risas y diversión donde la suerte decidirá tu destino.</p>
-            <button class="intro-button" onclick="nextStep(2)">¡Vamos a Jugar!</button>
-        </div>
-        
-        <div class="intro-step" id="step2">
-            <h2 class="intro-title">¿Cómo Jugamos?</h2>
-            <p class="intro-description">
-                Gira la ruleta y enfréntate a seis categorías increíbles:
-                <br><br>
-                <span class="category-icon">⚽</span> Jugadores
-                <span class="category-icon">🧠</span> Trivia
-                <span class="category-icon">🤔</span> ¿Qué Prefieres?
-                <br>
-                <span class="category-icon">👥</span> Características
-                <span class="category-icon">🎯</span> Retos y Juegos
-                <span class="category-icon">👑</span> GOATS
-            </p>
-            <button class="intro-button" onclick="nextStep(3)">Siguiente</button>
-        </div>
-        
-        <div class="intro-step" id="step3">
-            <h2 class="intro-title">¡Que Empiece la Diversión!</h2>
-            <p class="intro-description">Tienes 3 giros por ronda. En cada giro, tendrás que cumplir con el desafío que te toque. ¡Prepara tus bebidas y que comience la fiesta!</p>
-            <button class="intro-button" onclick="startGame()">¡Empezar a Jugar!</button>
-        </div>
+      <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'step1')">Bienvenido</button>
+        <button class="tab-button" onclick="openTab(event, 'step2')">¿Cómo Jugamos?</button>
+        <button class="tab-button" onclick="openTab(event, 'step3')">¡Que Empiece la Diversión!</button>
+      </div>
+      <div class="tab-content" id="step1">
+        <h1 class="intro-title">¡Bienvenido a Toma Bonito!</h1>
+        <div class="wheel-animation"></div>
+        <p class="intro-description">¡Prepárate para la mejor noche de juegos! Una mezcla explosiva de retos, risas y diversión donde la suerte decidirá tu destino.</p>
+        <button class="intro-button" onclick="nextStep(2)">¡Vamos a Jugar!</button>
+      </div>
+      <div class="tab-content" id="step2" style="display:none;">
+        <h2 class="intro-title">¿Cómo Jugamos?</h2>
+        <p class="intro-description">
+          Gira la ruleta y enfréntate a seis categorías increíbles:
+          <br><br>
+          <span class="category-icon">⚽</span> Jugadores
+          <span class="category-icon">🧠</span> Trivia
+          <span class="category-icon">🤔</span> ¿Qué Prefieres?
+          <br>
+          <span class="category-icon">👥</span> Características
+          <span class="category-icon">🎯</span> Retos y Juegos
+          <span class="category-icon">👑</span> GOATS
+        </p>
+        <button class="intro-button" onclick="nextStep(3)">Siguiente</button>
+      </div>
+      <div class="tab-content" id="step3" style="display:none;">
+        <h2 class="intro-title">¡Que Empiece la Diversión!</h2>
+        <p class="intro-description">Tienes 3 giros por ronda. En cada giro, tendrás que cumplir con el desafío que te toque. ¡Prepara tus bebidas y que comience la fiesta!</p>
+        <button class="intro-button" onclick="startGame()">¡Empezar a Jugar!</button>
+      </div>
     </div>
-</div>
+  </div>
 
+  <div id="gameOptions" class="game-options">
+    <h2>¿Cómo jugamos?</h2>
+    <button onclick="showDescription('Jugadores')" aria-label="Jugadores">Jugadores</button>
+    <button onclick="showDescription('Trivia')" aria-label="Trivia">Trivia</button>
+    <button onclick="showDescription('Que Prefieres')" aria-label="¿Qué Prefieres?">¿Qué Prefieres?</button>
+    <button onclick="showDescription('Caracteristicas')" aria-label="Características">Características</button>
+    <button onclick="showDescription('Retos y Juegos')" aria-label="Retos y Juegos">Retos y Juegos</button>
+    <button onclick="showDescription('Goats')" aria-label="Goats">Goats</button>
+    <div id="description" class="description"></div>
+  </div>
 
+  <button id="toggleIntroButton" aria-label="Mostrar Introducción">Mostrar Introducción</button>
 
   <div id="premio">
     <table style="margin: 0 auto;">
@@ -51,7 +65,7 @@
         <td>
           <p class="categoria">CATEGORIA ES:</p>
         </td>
-        <td><img src="image/cortesia.png" class="imgSorpresa"></td>
+        <td><img src="image/cortesia.png" class="imgSorpresa" alt="Imagen de Cortesía"></td>
       </tr>
       <tr>
         <td>
@@ -63,7 +77,7 @@
 
   <div class="vara"></div>
   <div class="ruleta-container">
-    <img src="image/imagen.png" id="ruleta" onclick="girar()">
+    <img src="image/imagen.png" id="ruleta" onclick="girar()" alt="Ruleta">
   </div>
 
   <div class="nombre">Toma Bonito</div>
