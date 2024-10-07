@@ -288,6 +288,19 @@ img {
         font-size: 1.5em;
         margin: 5px;
     }
+
+    .game-content h2 {
+        font-size: 2em;
+      }
+    
+      .game-content button {
+        padding: 10px 20px;
+        font-size: 1em;
+      }
+    
+      .description {
+        font-size: 1em;
+      }
 }
 
 .description {
