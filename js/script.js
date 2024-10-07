@@ -94,6 +94,23 @@ function showDescription(option) {
 }
 
 
+function openGameOverlay() {
+  const gameOverlay = document.getElementById('gameOverlay');
+  gameOverlay.style.display = 'flex';
+  setTimeout(() => {
+    gameOverlay.style.opacity = '1';
+  }, 50);
+}
+
+function closeGameOverlay() {
+  const gameOverlay = document.getElementById('gameOverlay');
+  gameOverlay.style.opacity = '0';
+  setTimeout(() => {
+    gameOverlay.style.display = 'none';
+  }, 500);
+}
+
+
 
 const ruleta = document.querySelector('#ruleta');
 const sonido = new Audio('sonido/ruleta.mp3'); // Carga el sonido
@@ -236,3 +253,4 @@ function calcular(rand) {
     }
   }, 5000);
 }
+
