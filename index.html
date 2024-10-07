@@ -46,18 +46,23 @@
     </div>
   </div>
 
-  <div id="gameOptions" class="game-options">
-    <h2>¿Cómo jugamos?</h2>
-    <button onclick="showDescription('Jugadores')" aria-label="Jugadores">Jugadores</button>
-    <button onclick="showDescription('Trivia')" aria-label="Trivia">Trivia</button>
-    <button onclick="showDescription('Que Prefieres')" aria-label="¿Qué Prefieres?">¿Qué Prefieres?</button>
-    <button onclick="showDescription('Caracteristicas')" aria-label="Características">Características</button>
-    <button onclick="showDescription('Retos y Juegos')" aria-label="Retos y Juegos">Retos y Juegos</button>
-    <button onclick="showDescription('Goats')" aria-label="Goats">Goats</button>
-    <div id="description" class="description"></div>
+  <div class="game-overlay" id="gameOverlay">
+    <div class="game-content">
+      <h2>¿Cómo jugamos?</h2>
+      <button onclick="showDescription('Jugadores')" aria-label="Jugadores">Jugadores</button>
+      <button onclick="showDescription('Trivia')" aria-label="Trivia">Trivia</button>
+      <button onclick="showDescription('Que Prefieres')" aria-label="¿Qué Prefieres?">¿Qué Prefieres?</button>
+      <button onclick="showDescription('Caracteristicas')" aria-label="Características">Características</button>
+      <button onclick="showDescription('Retos y Juegos')" aria-label="Retos y Juegos">Retos y Juegos</button>
+      <button onclick="showDescription('Goats')" aria-label="Goats">Goats</button>
+      <div id="description" class="description"></div>
+      <button class="intro-button" onclick="closeGameOverlay()">Cerrar</button>
+    </div>
   </div>
 
   <button id="toggleIntroButton" aria-label="Mostrar Introducción">Mostrar Introducción</button>
+  <button id="toggleGameButton" aria-label="Mostrar ¿Cómo Jugamos?" onclick="openGameOverlay()">¿Cómo Jugamos?</button>
+
 
   <div id="premio">
     <table style="margin: 0 auto;">
