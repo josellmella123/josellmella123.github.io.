@@ -72,22 +72,22 @@ function showDescription(option) {
   let descriptionText = '';
   switch (option) {
     case 'Jugadores':
-      descriptionText = 'Descripción de Jugadores...';
+      descriptionText = 'Los mejores jugadores actualmente son clasificados en bombos donde dependiendo el bombo en el que estén, mayor será la “habilidad” de estos. Bombo 1 toman o reparten o evitan 1, Bombo 2 toman o reparten o evitan 2 y Bombo 3 toman o reparten o evitan 3. Se dividen en 3 secciones: atacantes (toman), mediocampistas (reparten), defensas o arqueros (evitan). Los que evitan, lo hacen cuando les toca tomar.';
       break;
     case 'Trivia':
       descriptionText = 'Piense en una pregunta y los que se la respondan mal toman 1 trago pero si la responden bien toma 1 trago el que hizo la pregunta las veces que le respondieron bien.';
       break;
     case 'Que Prefieres':
-      descriptionText = 'Descripción de ¿Qué Prefieres?...';
+      descriptionText = 'Los jugadores deben elegir entre dos opciones y el que menos elijan los demás debe tomar 1 trago, están las opciones de la izquierda y de la derecha y en caso de empate todos toman 1 trago.';
       break;
     case 'Caracteristicas':
-      descriptionText = 'Descripción de Características...';
+      descriptionText = 'Según la característica seleccionada, se realizará una acción específica. Por ejemplo, si se selecciona "Vinicius", el jugador más rápido toma 1 trago.';
       break;
     case 'Retos y Juegos':
-      descriptionText = 'Descripción de Retos y Juegos...';
+      descriptionText = 'Si la opcion seleccionada es reto o juego se debe realizar la accion que se indique en la carta, si no se cumple la accion se toma 1 trago.';
       break;
     case 'Goats':
-      descriptionText = 'Descripción de Goats...';
+      descriptionText = 'Jugador decide una regla y se cambia cada vez que alguien le salga otro goat y asi sucecivamente, el que no cumpla la regla toma 1 trago.';
       break;
   }
   document.getElementById('description').innerText = descriptionText;
@@ -119,10 +119,10 @@ ruleta.addEventListener('click', girar);
 giros = 0;
 
 const opcionesCaracteristicas = [
-  "Kane: nunca gana nada, todos levantan sus copas menos tú.", "Yamal: toma el jugador más joven.", "Miura: toma el jugador más viejo.", "Insigne: toma el jugador más bajo.", "Crouch: toma el jugador más alto.", "Icardi: toma el peor amigo o el más roba pololas.", "Maxi lopez: toma el más cuernudo.", "Callager: toma el amigo más moreno.", "Son: toma el amigo con los ojos más rasgados.", "Vini: toma el amigo más rápido",
-  "Adama (akimfenua): toma el amigo más fuerte.", "Zamorano: toma el mejor “bailarín” (cabeceador).", "Trent: pie de ángel, toma el jugador que mejor hace los tragos.", "Ney: “piscinero”, toma el jugador mas mentiroso.", "Zlatan: toma el jugador mas egocéntrico.", "Kante: toma el jugador mas humilde.", "Beckam: toma el jugador mas bonito.", "Terry: toma el jugador mas infiel.", "Figo: toma el jugador mas traicionero", "laudrup: Madrid y barca, toman los jugadores que hayan estado o besado con enemigas.",
-  "Pirlo: los tres grandes italianos, jugadores que hayan estado o besado amigas.", "Grealish: toma el jugador mas borracho.", "Jordi tomphson: toma el jugador mas bueno pa las mangas.", "Pepe: toma el jugador mas hachero.", "Darwin: toma el jugador que no la mete nunca (interpretable)", "Mbappe: toma el jugador mas “open mind”", "Haaland: toma el jugador que la mete siempre.", "Pepe rojas: jugador mas lento.", "Gordo Ronaldo: jugador mas “gordo”.", "Los hermanos hernandez: jugador con mas hermanos.",
-  "Arturo Vidal: jugador que maneje mas rápido (o que haya chocado).", "Ingeniero Pellegrini: toman los jugadores con titulo profesional.", "ronaldinho: jugador mas fiestero.", "Vardy: el que debuto mas tarde toma", "Kivicha: nombre mas extraños", "Hazard: toman/reparten los que no hacen ejercicio", "Pogba: el que no paso el dopping"
+  "Kane: nunca gana nada, todos levantan sus copas y toman 1 trago, menos tú.", "Yamal: toma el jugador más joven.", "Miura: toma el jugador más viejo.", "Insigne: toma el jugador más bajo.", "Crouch: toma el jugador más alto.", "Icardi: toma el peor amigo o el más roba pololas.", "Maxi lopez: toma el más cuernudo.", "Gallager: toma el amigo más moreno.", "Son: toma el amigo con los ojos más rasgados.", "Vini: toma el amigo más rápido",
+  "Adama Traoré: toma el amigo más fuerte.", "Zamorano: toma el mejor “bailarín” (cabeceador).", "Trent: pie de ángel, toma el jugador que mejor hace los tragos.", "Neymar: “piscinero”, toma el jugador mas mentiroso.", "Zlatan: toma el jugador mas egocéntrico.", "Kante: toma el jugador mas humilde.", "Beckam: toma el jugador mas bonito.", "Terry: toma el jugador mas infiel.", "Figo: toma el jugador mas traicionero", "Laudrup: Madrid y barca, toman los jugadores que hayan estado o besado con enemigas(amigas que se odien).",
+  "Pirlo: los tres grandes italianos, toman los jugadores que hayan estado o besado amigas.", "Grealish: toma el jugador mas borracho.", "Jordi tomphson: toma el jugador mas conflictivo.", "Pepe: toma el jugador mas hachero.", "Darwin: toma el jugador que no la mete nunca (interpretable)", "Mbappe: toma el jugador mas “open mind”", "Haaland: toma el jugador que la mete siempre.", "Pepe rojas: toma el jugador mas lento.", "Gordo Ronaldo: toma el jugador mas “gordo”.", "Los hermanos hernandez: toma el jugador con mas hermanos.",
+  "Arturo Vidal: toma el jugador que maneje mas rápido (o que haya chocado).", "Ingeniero Pellegrini: toman los jugadores con titulo profesional.", "ronaldinho: toma el jugador mas fiestero.", "Vardy: el que debuto mas tarde toma", "Khvicha Kvaratskhelia: toma el jugador con el nombre mas extraño", "Hazard: toman 1 trago y reparten 1 trago los que no hacen ejercicio", "Pogba: toma el que no paso el dopping"
 ];
 
 const opcionesRetosYJuegos = [
@@ -253,4 +253,3 @@ function calcular(rand) {
     }
   }, 5000);
 }
-
