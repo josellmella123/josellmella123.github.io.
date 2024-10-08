@@ -11,12 +11,12 @@
     "apple-mobile-web-app-status-bar-style": "black-translucent",
     "icons": [
       {
-        "src": "icono.png",
+        "src": "./image/icono.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "icono.png",
+        "src": "./image/icono.png",
         "sizes": "512x512",
         "type": "image/png"
       }
