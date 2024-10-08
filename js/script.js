@@ -169,6 +169,9 @@ const opcionesQuePrefieres = [
 
 
 function girar() {
+  if ('vibrate' in navigator) {
+    navigator.vibrate(200); // Vibración táctil en dispositivos compatibles
+  }
   if (giros < 3) {
     let vueltas = 10; // Número fijo de vueltas
     let rand = Math.random() * 360; // Ángulo aleatorio entre 0 y 360
@@ -196,6 +199,57 @@ function girar() {
     })
   }
 }
+
+document.addEventListener('touchmove', function(event) {
+  if (!event.target.closest('.scrollable')) {
+      event.preventDefault();
+  }
+}, { passive: false });
+
+
+function initAudio() {
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  const audio = document.querySelector('#audio');
+  const source = audioContext.createMediaElementSource(audio);
+  source.connect(audioContext.destination);
+  
+  document.addEventListener('touchstart', function() {
+      audioContext.resume().then(() => {
+          console.log('Playback resumed successfully');
+      });
+  }, { once: true });
+}
+
+
+
+
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function(event) {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, false);
+
+
+window.addEventListener('load', function() {
+  const ruleta = document.querySelector('#ruleta');
+  if (ruleta) {
+      ruleta.draggable = false; // Prevenir arrastre accidental en iOS
+  }
+});
+
+
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    // Aquí puedes mostrar tu propio botón de instalación si lo deseas
+});
+
+
+
 
 function premio(premios) {
   document.querySelector('.categoria').innerHTML = 'CATEGORIA ES: ' + premios;
